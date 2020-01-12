@@ -1,0 +1,29 @@
+ng generate module app-routing --module app --flat
+ng generate module customers
+ng generate module customers/customers-routing --module customers --flat
+ng generate component customers/customers --spec=false --inlineStyle --flat
+ng generate module shared
+ng generate module core
+ng generate interface shared/models/ICustomer
+ng generate interface shared/models/IState
+ng generate interface shared/models/IOrder
+ng generate interface shared/models/IOrderItem
+ng generate component customers/customers-grid --spec=false
+ng generate service core/services/Data --spec=false
+ng generate pipe shared/pipes/capitalize --spec=false
+ng generate pipe shared/pipes/trim --spec=false
+ng generate module shared/material
+ng add @angular/material
+ng generate module security/login
+ng generate module security/login/login-routing --module security/login --flat
+ng generate component security/login/login --spec=false --flat
+ng generate class core/EnsureModuleLoadedOnceGuard --spec=false
+ng generate service core/services/Validation --spec=false
+npm i -s @angular/flex-layout @angular/cdk
+ng generate interface shared/models/IUserLogin
+ng generate service core/services/Auth --spec=false
+ng generate guard customers/guard/CanActivate --spec=false
+ng generate guard customers/guard/CanDeactivate --spec=false
+ng generate class shared/models/AppUserAuth 
+npm install @auth0/angular-jwt
+ng generate class core/interceptors/Auth --type=interceptor --spec=false

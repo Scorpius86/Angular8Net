@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #e01a76;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.messageInformation {
+  background-color: #17a2b8;
+  color: #FFFFFF;
+}
+
+.messageDanger {
+  background-color: #dc3545;
+  color: #FFFFFF;
+}

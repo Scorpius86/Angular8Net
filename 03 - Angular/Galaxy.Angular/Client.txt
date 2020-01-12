@@ -1,0 +1,15 @@
+ng generate module app-routing --module app --flat
+ng generate module customers
+ng generate module customers/customers-routing --module customers --flat
+ng generate component customers/customers --spec=false --inlineStyle --flat
+ng generate module shared
+ng generate module core
+ng generate interface shared/models/ICustomer
+ng generate interface shared/models/IState
+ng generate interface shared/models/IOrder
+ng generate interface shared/models/IOrderItem
+ng generate component customers/customers-grid --spec=false
+ng generate service core/services/Data --spec=false
+ng generate pipe shared/pipes/capitalize --spec=false
+ng generate pipe shared/pipes/trim --spec=false
+ng generate module material 

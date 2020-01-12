@@ -1,0 +1,26 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title><h3><span class="glyphicon glyphicon-lock"></span> Login</h3></mat-card-title>
+    </mat-card-header>
+
+    <form class="example-form" [formGroup]="loginForm" (ngSubmit)="submit(loginForm)" novalidate>
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Enter your email" formControlName="email" required>
+          <mat-error *ngIf="loginForm.controls.email.invalid">{{getErrorMessage(loginForm.controls.email)}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Enter your password" type="password" formControlName="password" required>
+          <mat-error *ngIf="loginForm.controls.password.invalid">{{getErrorMessage(loginForm.controls.password)}}</mat-error>
+        </mat-form-field>
+      </mat-card-content>
+
+      <mat-error class="label label-important" *ngIf="errorMessage">{{errorMessage}}</mat-error>
+      <button mat-stroked-button color="accent" class="btn-block" [disabled]="!loginForm.valid">Login</button>
+    </form>
+  </mat-card>
+
+</div>

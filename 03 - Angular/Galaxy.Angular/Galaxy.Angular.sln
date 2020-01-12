@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Galaxy.Angular.Client", "Galaxy.Angular.Client\Galaxy.Angular.Client.csproj", "{176BD35B-FCE6-4DA9-B7B9-4FD3EE5EAE3D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Commands", "Commands", "{0D8D9A47-AE71-4A65-B47C-2E4AE1E7D92F}"
+	ProjectSection(SolutionItems) = preProject
+		Client.txt = Client.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Galaxy.Angular.API", "Galaxy.Angular.API\Galaxy.Angular.API.csproj", "{31798AE8-1EF2-4862-8EA4-E760047B049A}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Galaxy.Angular.DB", "Galaxy.Angular.DB\Galaxy.Angular.DB.sqlproj", "{EC63022E-FCC3-4F18-82AD-48F8F6F77CF9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{176BD35B-FCE6-4DA9-B7B9-4FD3EE5EAE3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{176BD35B-FCE6-4DA9-B7B9-4FD3EE5EAE3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{176BD35B-FCE6-4DA9-B7B9-4FD3EE5EAE3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{176BD35B-FCE6-4DA9-B7B9-4FD3EE5EAE3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31798AE8-1EF2-4862-8EA4-E760047B049A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31798AE8-1EF2-4862-8EA4-E760047B049A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31798AE8-1EF2-4862-8EA4-E760047B049A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31798AE8-1EF2-4862-8EA4-E760047B049A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC63022E-FCC3-4F18-82AD-48F8F6F77CF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC63022E-FCC3-4F18-82AD-48F8F6F77CF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC63022E-FCC3-4F18-82AD-48F8F6F77CF9}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{EC63022E-FCC3-4F18-82AD-48F8F6F77CF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC63022E-FCC3-4F18-82AD-48F8F6F77CF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC63022E-FCC3-4F18-82AD-48F8F6F77CF9}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B3A2278D-8E58-4BA3-BAE3-C63D9A312178}
+	EndGlobalSection
+EndGlobal
