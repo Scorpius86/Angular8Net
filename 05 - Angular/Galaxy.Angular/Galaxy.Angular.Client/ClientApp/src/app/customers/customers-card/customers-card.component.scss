@@ -1,0 +1,51 @@
+.card {
+  width: 300px;
+  padding: 0px 24px 24px 0px;
+  float: left;
+}
+
+.card-image {
+  height: 50px;
+  width: 50px;
+  margin-top: 0px;
+  }
+
+.card-body{
+    width:100px;
+    padding-left:10px;
+}
+
+mat-card{
+    padding:0px;
+}
+
+mat-card-content {
+  height: 85px;
+  padding: 8px 4px 0px 4px;
+}
+
+mat-card-header {
+  background: #3f51b5;
+  color: white;
+  padding: 4px 10px;
+}
+
+::ng-deep .mat-card-header-text {
+  /* CSS styles go here */
+  margin: 0px !important; // for example to remove the margin
+}
+
+a, a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-name{
+    line-height:28px;
+}
+
+.card-edit {
+  position: absolute;
+  right: 0px;
+  padding-right: 10px;
+}
