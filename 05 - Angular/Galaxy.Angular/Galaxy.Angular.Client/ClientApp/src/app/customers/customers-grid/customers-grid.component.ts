@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import { ICustomer } from '../../shared/models/icustomer';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 
@@ -9,7 +9,7 @@ import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 })
 export class CustomersGridComponent implements OnInit, OnChanges {   
   @Input() customers: ICustomer[] = [];
-  displayedColumns: string[] = ['Image','FirstName', 'LastName', 'Address', 'City', 'State', 'TotalOrders'];
+  displayedColumns: string[] = ['Image','FirstName', 'LastName', 'Address', 'City', 'State', 'Total'];
   dataSource: MatTableDataSource<ICustomer>;
   resultsLength = 0;
   isLoadingResults = true;
@@ -25,8 +25,12 @@ export class CustomersGridComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.dataSource = new MatTableDataSource<ICustomer>(changes.customers.currentValue)
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;    
+      //this.loadData(changes.customers.currentValue);
   }
+
+    loadData(data: ICustomer[]) {
+        this.dataSource = new MatTableDataSource<ICustomer>(data)
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort; 
+    }
 }

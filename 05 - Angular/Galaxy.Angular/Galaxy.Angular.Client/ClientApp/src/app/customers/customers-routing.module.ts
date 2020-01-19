@@ -4,6 +4,8 @@ import { CustomersComponent } from './customers.component';
 import { CustomersGridComponent } from './customers-grid/customers-grid.component';
 import { CanActivateGuard } from './guard/can-activate.guard';
 import { CanDeactivateGuard } from './guard/can-deactivate.guard';
+import { CustomersCardComponent } from './customers-card/customers-card.component';
+import { DialogMessageComponent } from './dialog-message/dialog-message.component';
 
 const routes: Routes = [
   {
@@ -24,5 +26,9 @@ const routes: Routes = [
   providers: [CanActivateGuard, CanDeactivateGuard]
 })
 export class CustomersRoutingModule {
-  static components = [CustomersComponent, CustomersGridComponent];
+    static components = [
+        CustomersComponent,
+        CustomersGridComponent,
+        CustomersCardComponent,
+        DialogMessageComponent];
 }

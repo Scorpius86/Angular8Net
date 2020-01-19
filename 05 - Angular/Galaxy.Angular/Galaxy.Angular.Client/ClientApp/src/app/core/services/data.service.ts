@@ -25,10 +25,14 @@ export class DataService {
         map(customers => {
           this.calculateCustomersOrderTotal(customers);
           return customers;
-        }),
+        })  ,
         catchError(this.handleError)
       );
-  }
+    }
+
+    deleteCustomer(customerId: number):Observable<boolean> {
+        return this.http.delete<boolean>(this.customersBaseUrl + "/" + customerId);
+    }
 
   private handleError(error: HttpErrorResponse) {
     console.error('server error:', error);

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ICustomer } from '../../shared/models/icustomer';
 
 @Component({
@@ -7,7 +7,8 @@ import { ICustomer } from '../../shared/models/icustomer';
   styleUrls: ['./customers-card.component.scss']
 })
 export class CustomersCardComponent implements OnInit {
-  @Input() customers: ICustomer[] = [];
+    @Input() customers: ICustomer[] = [];
+    @Output() delete: EventEmitter<ICustomer> = new EventEmitter<ICustomer>();
 
   constructor() { }
 

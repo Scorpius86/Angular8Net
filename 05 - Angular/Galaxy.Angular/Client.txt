@@ -28,3 +28,4 @@ ng generate class shared/models/AppUserAuth
 npm install @auth0/angular-jwt
 ng generate class core/interceptors/Auth --type=interceptor --spec=false
 ng generate component customers/customers-card --spec=false
+ng generate component customers/dialog-message --spec=false

@@ -74,10 +74,8 @@ namespace Galaxy.Angular.API.Infrastructure.Data.EntityFrameCore.Context
                 entity.ToTable("Order");
 
                 entity.HasOne(d => d.Customer)
-                    .WithMany(p => p.Orders)
-                    .HasForeignKey(d => d.CustomerId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Order_Customer");
+                    .WithMany(p => p.Orders);
+                    
             });
 
             modelBuilder.Entity<OrderItem>(entity =>

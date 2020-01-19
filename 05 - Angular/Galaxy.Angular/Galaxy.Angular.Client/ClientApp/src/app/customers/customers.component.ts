@@ -1,6 +1,9 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { ICustomer } from '../shared/models/icustomer';
 import { DataService } from '../core/services/data.service';
+import { CustomersGridComponent } from './customers-grid/customers-grid.component';
+import { MatDialog, MAT_DIALOG_DATA} from '@angular/material';
+import { DialogMessageComponent } from './dialog-message/dialog-message.component';
 
 @Component({
   selector: 'app-customers',
@@ -13,8 +16,11 @@ export class CustomersComponent implements OnInit {
   displayMode: DisplayModeEnum;
   displayModeEnum = DisplayModeEnum;
 
+    @ViewChild(CustomersGridComponent, {static:true}) grid: CustomersGridComponent;
+
   constructor(
-    private dataService: DataService
+      private dataService: DataService,
+      public dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -27,13 +33,36 @@ export class CustomersComponent implements OnInit {
   getCustomers() {
     this.dataService.getCustomers()
       .subscribe((response: ICustomer[]) => {
-        this.customers = response;
+          this.customers = response;
+          this.loadGrid(this.customers);
       });
-  }
+    }
+
+    loadGrid(data:ICustomer[]) {  
+        this.grid.loadData(data);
+    }
 
   changeDisplayMode(mode: DisplayModeEnum) {
     this.displayMode = mode;
-  }
+    }
+
+    deleteCustomer(customer:ICustomer) {
+        const dialogRef = this.dialog.open(DialogMessageComponent, {
+            width: '250px',
+            data: customer
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+                this.dataService.deleteCustomer(customer.Id)
+                    .subscribe(data => {
+                        if (data) {
+                            this.getCustomers();
+                        }
+                    });
+            }
+        });
+    }
 
 }
 

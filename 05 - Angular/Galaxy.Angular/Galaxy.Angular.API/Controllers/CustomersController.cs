@@ -26,5 +26,12 @@ namespace Galaxy.Angular.API.Controllers
         {
             return _customersApplicationService.ListCustomers();
         }
+
+        [HttpDelete("{customerId}")]
+        [Authorize]
+        public bool DeleteCustomer(int customerId)
+        {
+            return _customersApplicationService.DeleteCustomer(customerId);
+        }
     }
 }

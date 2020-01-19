@@ -5,9 +5,14 @@
         <a [routerLink]="['/customers',customer.Id,'details']" class="card-name">
           {{customer.FirstName | capitalize }} {{ customer.LastName | capitalize }}
         </a>
-        <a [routerLink]="['/customers',customer.Id,'edit']" class="card-edit">
-          <mat-icon>edit</mat-icon>
-        </a>
+        <div class="card-action">
+          <button mat-icon-button (click)="delete.emit(customer)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button (click)="edit(customer)">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </div>
       </mat-card-header>
       <mat-card-content>
         <div fxLayout="row">

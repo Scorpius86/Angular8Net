@@ -22,11 +22,29 @@
   </div>
 
   <app-customers-card [customers]="customers"
+                      (delete) = "deleteCustomer($event)"
                       [hidden]="displayMode !== displayModeEnum.Card"></app-customers-card>
 
-  <app-customers-grid [customers]="customers "
+  <app-customers-grid [customers]="customers"
                       [hidden]="displayMode !== displayModeEnum.Grid">
   </app-customers-grid>
 </div>
+<!--<mat-tab-group>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon>view_module</mat-icon> Card View
+    </ng-template>
+    <app-customers-card [customers]="customers"></app-customers-card>
+
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon>reorder</mat-icon> List View
+    </ng-template>
+    <app-customers-grid [customers]="customers">
+    </app-customers-grid>
+  </mat-tab>
+</mat-tab-group>-->
 
 
