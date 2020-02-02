@@ -1,0 +1,54 @@
+<div class="container">
+  <header>
+    <h3>
+      <mat-icon style="vertical-align: bottom;">account_circle</mat-icon> {{ title }}
+    </h3>
+  </header>
+  <br />
+
+  <div class="navbar">
+    <button mat-button (click)="changeDisplayMode(displayModeEnum.Card)" [color]="displayMode === displayModeEnum.Card?'primary':'basic'">
+      <mat-icon>view_module</mat-icon> Card View
+    </button>
+    <button mat-button (click)="changeDisplayMode(displayModeEnum.Grid)" [color]="displayMode === displayModeEnum.Grid?'primary':'basic'">
+      <mat-icon>reorder</mat-icon> List View
+    </button>
+    <button mat-button>
+      <!--<a routerLink="/customers/0/edit">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">note_add</mat-icon> New Customer
+      </a>-->        
+      
+      <a routerLink="/customers/0/edit">
+        <mat-icon>note_add</mat-icon> New Customer
+      </a>
+    </button>
+  </div>
+
+  <app-customers-card [customers]="customers"
+                      (delete) = "deleteCustomer($event)"
+                      (edit) = "editCustomer($event)"
+                      [hidden]="displayMode !== displayModeEnum.Card"></app-customers-card>
+
+  <app-customers-grid [customers]="customers"
+                      [hidden]="displayMode !== displayModeEnum.Grid">
+  </app-customers-grid>
+</div>
+<!--<mat-tab-group>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon>view_module</mat-icon> Card View
+    </ng-template>
+    <app-customers-card [customers]="customers"></app-customers-card>
+
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon>reorder</mat-icon> List View
+    </ng-template>
+    <app-customers-grid [customers]="customers">
+    </app-customers-grid>
+  </mat-tab>
+</mat-tab-group>-->
+
+

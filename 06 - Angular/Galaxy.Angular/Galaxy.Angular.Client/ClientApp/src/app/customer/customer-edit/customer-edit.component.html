@@ -1,0 +1,52 @@
+<div class="example-container">
+  <form (ngSubmit)="submit()" #customerForm="ngForm" class="customer-form" novalidate>
+    <div class="form-group">
+      <mat-form-field>
+        <input matInput class="form-control" placeholder="First Name" name="firstName" [(ngModel)]="customer.FirstName" #firstName="ngModel" required>
+      </mat-form-field>
+      <div class="alert alert-danger" [hidden]="firstName.pristine || firstName.valid">First Name is required</div>
+    </div>
+    <div class="form-group">
+      <mat-form-field>
+        <input matInput class="form-control" placeholder="Last Name" name="lastName" [(ngModel)]="customer.LastName" #lastName="ngModel" required>
+      </mat-form-field>
+       <div class="alert alert-danger" [hidden]="lastName.pristine || lastName.valid">Last Name is required</div>
+    </div>
+    <div class="form-group">
+      <mat-form-field>
+        <input matInput class="form-control" placeholder="Address" name="address" [(ngModel)]="customer.Address" #address="ngModel" required>
+      </mat-form-field>
+      <div class="alert alert-danger" [hidden]="address.pristine || address.valid">Address is required</div>
+    </div>
+    <div class="form-group">
+      <mat-form-field>
+        <input matInput class="form-control" placeholder="City" name="city" [(ngModel)]="customer.City" #city="ngModel" required>
+      </mat-form-field>
+      <div class="alert alert-danger" [hidden]="city.pristine || city.valid">City is required</div>
+    </div>
+    <div class="form-group">
+      <mat-form-field>
+        <mat-select placeholder="Select"
+                    [(ngModel)]="customer.State.StateId"
+                    name="state"
+                    required>
+          <mat-option *ngFor="let state of states" [value]="state.StateId">{{state.Name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div *ngIf="customer">
+      <div class="alert alert-warning" *ngIf="customer.id && deleteMessageEnabled">
+        Delete Customer?&nbsp;&nbsp;<button class="btn btn-danger" (click)="delete($event)">Yes</button>&nbsp;&nbsp;
+        <button class="btn btn-default" (click)="deleteMessageEnabled = false">No</button>
+      </div>
+      <button class="btn btn-danger" *ngIf="customer.Id && !deleteMessageEnabled" (click)="deleteMessageEnabled = true">Delete</button>&nbsp;&nbsp;
+
+      <div class="pull-right" *ngIf="!deleteMessageEnabled">
+        <button mat-raised-button class="btn btn-default" (click)="cancel($event)">Cancel</button>&nbsp;&nbsp;
+        <button mat-raised-button color="primary" type="submit" class="btn btn-success" [disabled]="customerForm.pristine || !customerForm.valid">{{ operationText }}</button>
+      </div>
+    </div>
+    <div class="alert alert-danger" *ngIf="errorMessage != null">{{ errorMessage }}</div>
+  </form>
+  <br />
+</div>

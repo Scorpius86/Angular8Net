@@ -1,0 +1,34 @@
+  <div>
+  <div *ngFor="let customer of customers" class="card"  fxLayout="row wrap" >
+    <mat-card fxFlex>
+      <mat-card-header>
+        <a [routerLink]="['/customers',customer.Id,'details']" class="card-name">
+          {{customer.FirstName | capitalize }} {{ customer.LastName | capitalize }}
+        </a>
+        <div class="card-action">
+          <button mat-icon-button (click)="delete.emit(customer)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button (click)="edit.emit(customer)">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </div>
+      </mat-card-header>
+      <mat-card-content>
+        <div fxLayout="row">
+          <div fxFlex="20">
+            <a href="#" class="card-image">
+              <img src="assets/images/{{ customer.Gender | lowercase }}.png" class="card-image" />
+            </a>
+          </div>
+          <div>
+            <div class="card-body">{{customer.City | trim }}, {{customer.State.Name}}</div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div *ngIf="!customers.length">
+    No Records Found
+  </div>
+</div>

@@ -30,3 +30,13 @@ ng generate class core/interceptors/Auth --type=interceptor --spec=false
 ng generate component customers/customers-card --spec=false
 ng generate component customers/dialog-message --spec=false
 ng generate module customer
+ng generate module customer/customer-routing --module customer --flat
+ng generate component customer/customer --spec=false --inlineStyle --flat
+ng generate component customer/customer-edit --spec=false
+ng generate component customer/customer-details --spec=false
+ng generate component customer/customer-orders --spec=false
+ng generate interface shared/models/IApiResponse
+ng generate guard customer/guard/CanDeactivate --spec=false
+ng generate component core/modal --spec=false
+ng generate service core/modal/modal --spec=false
+ng generate module core/modal

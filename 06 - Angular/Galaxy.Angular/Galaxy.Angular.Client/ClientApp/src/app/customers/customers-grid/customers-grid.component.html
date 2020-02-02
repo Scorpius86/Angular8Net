@@ -1,0 +1,97 @@
+<!--<div class="container">
+  <div class="row grid-container">
+    <div class="col-md-10">
+      <div class="table">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>&nbsp;</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>State</th>
+              <th>Order Total</th>
+              <th>&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let customer of customers">
+              <td>
+                <img src="assets/images/{{ customer.Gender | lowercase }}.png"
+                     class="grid-image" alt="Customer Image" />
+              </td>
+              <td>{{ customer.FirstName | capitalize }}</td>
+              <td>{{ customer.LastName | capitalize }}</td>
+              <td>{{ customer.Address }}</td>
+              <td>{{ customer.City | trim }}</td>
+              <td>{{ customer.State.Name }}</td>
+              <td>{{ customer.Total | currency:'USD':'symbol' }}</td>
+              <td>View Orders</td>
+            </tr>
+            <tr *ngIf="!customers.length">
+              <td>&nbsp;</td>
+              <td colspan="7">No Records Found</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>-->
+
+  
+  <div class="container-table mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <!-- Image Column -->
+      <ng-container matColumnDef="Image">
+        <th mat-header-cell *matHeaderCellDef> &nbsp; </th>
+        <td mat-cell *matCellDef="let customer">
+          <img src="assets/images/{{ customer.Gender | lowercase }}.png"
+               class="grid-image"
+               alt="Customer Image" />
+        </td>
+      </ng-container>
+
+      <!-- First Name Column -->
+      <ng-container matColumnDef="FirstName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+        <td mat-cell *matCellDef="let customer"> {{customer.FirstName | capitalize}} </td>
+      </ng-container>
+
+      <!-- Last Name Column -->
+      <ng-container matColumnDef="LastName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+        <td mat-cell *matCellDef="let customer"> {{customer.LastName | capitalize}} </td>
+      </ng-container>
+
+      <!-- Address Column -->
+      <ng-container matColumnDef="Address">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
+        <td mat-cell *matCellDef="let customer"> {{customer.Address}} </td>
+      </ng-container>
+
+      <!-- City Column -->
+      <ng-container matColumnDef="City">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
+        <td mat-cell *matCellDef="let customer"> {{customer.City | trim}} </td>
+      </ng-container>
+
+      <!-- State Column -->
+      <ng-container matColumnDef="State">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> State </th>
+        <td mat-cell *matCellDef="let customer"> {{customer.State.Name}} </td>
+      </ng-container>
+
+      <!-- Total Column -->
+      <ng-container matColumnDef="Total">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Total Orders </th>
+        <td mat-cell *matCellDef="let customer"> {{customer.Total | currency:'USD':'symbol'}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
