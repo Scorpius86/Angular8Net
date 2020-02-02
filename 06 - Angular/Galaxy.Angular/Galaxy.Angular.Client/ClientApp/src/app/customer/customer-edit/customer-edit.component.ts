@@ -23,10 +23,11 @@ export class CustomerEditComponent implements OnInit {
       Gender: '',
       Address: '',
       City: '',
-      State: {
-        Abbreviation: '',
-        Name: ''
-      }
+          State: {
+              StateId: 0,
+              Abbreviation: '',
+              Name: ''
+          }
     };
   states: IState[];
   errorMessage: string;
